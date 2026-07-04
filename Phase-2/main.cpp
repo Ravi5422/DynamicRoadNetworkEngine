@@ -4,7 +4,7 @@
 #include <vector>
 #include <utility>
 #include <cassert>
-#include "Graph.hpp"
+#include "graph.hpp"
 #include "../nlohmann/json.hpp"
 using json = nlohmann::json;
 

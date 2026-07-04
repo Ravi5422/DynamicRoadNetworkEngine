@@ -2,7 +2,7 @@
 #define SCHEDULER_HPP
 
 #include "graph.hpp"
-#include "nlohmann/json.hpp"
+#include "../nlohmann/json.hpp"
 #include <vector>
 
 using json = nlohmann::json;

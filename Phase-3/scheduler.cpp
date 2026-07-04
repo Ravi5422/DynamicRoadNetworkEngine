@@ -262,7 +262,7 @@ void Scheduler::solve_driver_route(Driver& driver, std::vector<int>& assigned_or
         return;
     }
 
-    // *** CHANGE: sort orders by priority_score (desc), tie-breaker = nearer pickup to depot
+    // Sort orders by priority_score (desc), tie-breaker = nearer pickup to depot
     std::sort(effective_orders.begin(), effective_orders.end(), [&](int a, int b) {
         const Order& oa = orders[a];
         const Order& ob = orders[b];
@@ -302,7 +302,7 @@ void Scheduler::solve_driver_route(Driver& driver, std::vector<int>& assigned_or
                 double dropDelta = graph.euclidean_estimate(ord.pickupNode, ord.dropNode);
                 double totalDelta = pickupDelta + dropDelta;
 
-                // *** CHANGE: bias by priority, higher priority effectively reduces cost
+                // Bias by priority: higher priority effectively reduces cost
                 double weighted = totalDelta / (1.0 + 0.1 * ord.priority_score);
 
                 if (weighted < bestScore) {
@@ -362,8 +362,7 @@ void Scheduler::solve_driver_route(Driver& driver, std::vector<int>& assigned_or
         bool ok = graph.getShortestPath(prev, next, segPath, segTime);
 
         if (!ok) {
-            // *** CHANGE: if we cannot reach this stop, penalize and skip it,
-            // but do NOT fake-teleport the driver to 'next'.
+            // If we cannot reach this stop, penalize and skip it
             driver.currentTime += STALE_TIME;
             continue;
         }

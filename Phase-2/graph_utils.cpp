@@ -1,5 +1,5 @@
 
-#include "Graph.hpp"
+#include "graph.hpp"
 #include <iostream>
 #include <algorithm>
 #include <cmath>

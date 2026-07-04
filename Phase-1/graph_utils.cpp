@@ -1,6 +1,6 @@
 // basic graph functions that are common to all graphs.
 
-#include "Graph.hpp"
+#include "graph.hpp"
 
 #include <iostream>
 #include <algorithm>

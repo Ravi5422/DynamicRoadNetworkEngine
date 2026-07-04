@@ -3,8 +3,9 @@
 #include <string>
 #include <vector>
 #include <cassert>
-#include "Graph.hpp"
-#include "../nlohmann/json.hpp" // change this depending on how they want
+#include <unordered_set>
+#include "graph.hpp"
+#include "../nlohmann/json.hpp"
 using json = nlohmann::json;
 
 int main(int argc, char* argv[]) {
@@ -169,7 +170,7 @@ int main(int argc, char* argv[]) {
             result["nodes"] = nearestNodes;
         }
         else {
-            // error handling??
+            // Unsupported query type
             continue;
         }
         auto end_time = std::chrono::high_resolution_clock::now();
