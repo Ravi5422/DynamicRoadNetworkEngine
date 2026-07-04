@@ -1,0 +1,16 @@
+# Compiled binaries
+phase1
+phase2
+phase3
+*.o
+*.out
+*.exe
+*.dylib
+*.so
+*.a
+
+# Test outputs & temporary files
+output*.json
+*.log
+*.tmp
+.DS_Store
